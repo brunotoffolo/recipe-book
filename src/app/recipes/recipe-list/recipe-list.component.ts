@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { Recipe } from '../recipe';
 
@@ -9,6 +9,9 @@ import { Recipe } from '../recipe';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
 
+  // TODO Improve later
+  @Output() recipeSelected = new EventEmitter<Recipe>();
+
   // TODO Replace with real recipe list
   recipe = new Recipe("Hamburger",
               "Delicious hamburger recipe",
@@ -17,6 +20,10 @@ export class RecipeListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelected(recipe: Recipe) {
+    this.recipeSelected.emit(recipe);
   }
 
 }
