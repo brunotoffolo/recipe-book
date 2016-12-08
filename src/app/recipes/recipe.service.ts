@@ -40,6 +40,16 @@ export class RecipeService {
   getRecipe(id: number) {
     return this.recipes[id];
   }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
+  editRecipe(oldRecipe: Recipe, newRecipe: Recipe) {
+    const index = this.recipes.indexOf(oldRecipe);
+    this.recipes[index] = newRecipe;
+  }
+  
   deleteRecipe(recipe: Recipe) {
     this.recipes.splice(this.recipes.indexOf(recipe), 1);
   }
