@@ -80,7 +80,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     let recipeContent = '';
     let recipeIngredients: FormArray = new FormArray([]);
 
-    if (!this.isNew) {
+    if (!this.isNew && this.recipe.hasOwnProperty('ingredients')) {
       // Edit mode
       for (let i=0; i < this.recipe.ingredients.length; i++) {
         recipeIngredients.push(
